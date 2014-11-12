@@ -33,18 +33,27 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="InstallService.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="UninstallService.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
     <Reference Include="System.ServiceProcess" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ServiceInstaller.cs">
+    <Compile Include="NewRelicDummyApp.cs" />
+    <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WinService.cs">
+    <Compile Include="ServiceSettings.cs" />
+    <Compile Include="NewRelicDummy.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

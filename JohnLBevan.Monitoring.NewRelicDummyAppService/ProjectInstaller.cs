@@ -1,30 +1,23 @@
-﻿using System;
+﻿//Don't open in designer view - written as code only
+using System;
 using System.ServiceProcess;
 namespace JohnLBevan.Monitoring.NewRelicDummyAppService
 {
-    // <summary>
-    ///     Summary description for ProjectInstaller.
+    /// <summary
+    ///     Installer for the NewRelicDummyAppService.
     /// </summary>
     [System.ComponentModel.RunInstaller(true)]
     public class ProjectInstaller : System.Configuration.Install.Installer
     {
-        /// <summary>
-        ///    Required designer variable.
-        /// </summary>
         //private System.ComponentModel.Container components;
         private ServiceInstaller serviceInstaller;
         private ServiceProcessInstaller serviceProcessInstaller;
 
         public ProjectInstaller()
         {
-            // This call is required by the Designer.
             InitializeComponent();
         }
 
-        /// <summary>
-        ///    Required method for Designer support - do not modify
-        ///    the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.serviceInstaller = new ServiceInstaller();
@@ -32,13 +25,14 @@ namespace JohnLBevan.Monitoring.NewRelicDummyAppService
             // 
             // serviceInstaller
             // 
-            this.serviceInstaller.Description = "My Windows Service description";
-            this.serviceInstaller.DisplayName = "My WinService";
-            this.serviceInstaller.ServiceName = "WinService";
+            this.serviceInstaller.Description = "Allows server to be associated with NewRelic application monitoring; requires that the NewRelic .net agent and server agents be installed."; //ServiceSettings.ServiceDescription;
+            this.serviceInstaller.DisplayName = "NewRelicDummyService"; //ServiceSettings.ServiceDisplayName;
+            this.serviceInstaller.ServiceName = "NewRelicDummyService"; //ServiceSettings.ServiceName;
             // 
             // serviceProcessInstaller
             // 
-            this.serviceProcessInstaller.Account = ServiceAccount.LocalService;
+            //NB: these settings are easy to change after install, so leaving them hardcoded for the installer
+            this.serviceProcessInstaller.Account = ServiceAccount.LocalSystem; //http://msdn.microsoft.com/en-us/library/system.serviceprocess.serviceaccount(v=vs.110).aspx
             this.serviceProcessInstaller.Password = null;
             this.serviceProcessInstaller.Username = null;
             // 
