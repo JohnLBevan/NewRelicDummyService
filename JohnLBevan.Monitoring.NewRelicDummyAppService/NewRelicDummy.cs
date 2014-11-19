@@ -8,7 +8,7 @@ namespace JohnLBevan.Monitoring.NewRelicDummyAppService
     class NewRelicDummyWinService : ServiceBase
     {
         private Thread worker;
-        private NewRelicDummyApp app;
+        private NewRelicDummyApp app = new NewRelicDummyApp();
 
         static void Main()
         {

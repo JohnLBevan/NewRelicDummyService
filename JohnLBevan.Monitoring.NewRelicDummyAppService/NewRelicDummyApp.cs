@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace JohnLBevan.Monitoring.NewRelicDummyAppService
 {
-    class NewRelicDummyApp
+    public class NewRelicDummyApp
     {
         private readonly object syncroot = new object();
         private bool running = false;
